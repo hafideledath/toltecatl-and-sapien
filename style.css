@@ -1,0 +1,245 @@
+:root {
+    --page-color: #161616;
+    --section-color: #161616;
+    --section-header-color: #eae2b2;
+    --emphasis-color: #c3b87a;
+    --SAPIEN-generated-color: #bd97e7;
+    --poetry-color: #ffffff;
+    --section-header-font: 'Bigshot One', serif;
+    --emphasis-font: 'IBM Plex Mono', monospace;
+    --poetry-font: 'Domine', serif;
+    --border-width: 20px;
+    --section-width: 1000px;
+    --section-padding: 60px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--page-color);
+}
+
+header {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+header > * {
+    pointer-events: auto;
+}
+
+.opener {
+    background-color: var(--section-color);
+    padding: calc(var(--section-padding) / 2) var(--section-padding);
+    color: var(--poetry-color);
+    font-family: var(--poetry-font);
+    line-height: 1.5;
+    border-bottom: 10px solid var(--emphasis-color);
+}
+
+.opener p {
+    max-width: 1000px;
+}
+
+.opener .emphasis {color: var(--emphasis-color); font-weight: 800;}
+.opener .SAPIEN-generated {color: var(--SAPIEN-generated-color); font-weight: 800;}
+
+.opener a {
+    color: var(--poetry-color) !important;
+}
+
+.music-button {
+    font-size: 1.8rem;
+    font-family: var(--emphasis-font);
+    font-weight: 800;
+    cursor: pointer;
+    color: var(--emphasis-color);
+    margin: 10px calc(var(--border-width) * 2);
+    opacity: 0.4;
+    transition-duration: .2s;
+}
+
+.music-button:hover {
+    opacity: 1;
+}
+
+.now-playing {
+    display: none;
+    font-size: 0.85rem;
+    width: 180px;
+    font-family: var(--emphasis-font);
+    color: var(--emphasis-color);
+    opacity: 0.6;
+    margin: -6px calc(var(--border-width) * 2) 6px;
+    text-align: right;
+}
+
+section {
+    width: 100%;
+    max-width: var(--section-width);
+    margin: var(--border-width);
+    padding: var(--section-padding);
+    box-sizing: border-box;
+    background-color: var(--section-color);
+    overflow-x: auto;
+}
+
+.heading-container {
+    width: fit-content;
+}
+
+h2 {
+    font-size: 6.5rem;
+    margin: var(--border-width) 0 -10px calc(var(--border-width) * 2);
+    font-weight: bold;
+    font-family: var(--section-header-font);
+    color: var(--section-header-color);
+}
+
+h3 {
+    font-size: 3rem;
+    font-family: var(--section-header-font);
+    color: var(--emphasis-color);
+    margin: 0 -20px 0 0;
+    text-align: right;
+}
+
+h4 {
+    font-family: var(--emphasis-font);
+    color: var(--emphasis-color);
+    font-size: 1.8rem;
+    margin: 0 0 0 -3px;
+}
+
+h4.SAPIEN-generated, h4 .SAPIEN-generated {
+    color: var(--SAPIEN-generated-color);
+}
+
+section h4:not(:first-child) {
+    margin-top: var(--section-padding);
+}
+
+.poem {
+    font-family: var(--poetry-font);
+    color: var(--poetry-color);
+    white-space: pre-wrap;
+    max-width: 100%;
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+.poem.centered {
+    width: fit-content;
+}
+
+.poem.SAPIEN-generated {
+    font-family: var(--emphasis-font);
+}
+
+.poem.last-dance span:nth-of-type(2n) {
+    display: block;
+    text-align: right;
+    font-family: var(--emphasis-font);
+}
+
+.poem.last-dance span span {
+    color: var(--emphasis-color);
+    font-style: italic;
+    font-family: var(--emphasis-font);
+}
+
+.poem.last-dance span:nth-of-type(2n) span {
+    color: var(--SAPIEN-generated-color);
+}
+
+.centered {text-align: center;}
+
+.neurofacility span {color: #e95d5d;}
+
+.quote-block {
+    margin-bottom: var(--section-padding);
+}
+
+section .quote-block:not(:first-child) {
+    margin-top: var(--section-padding);
+}
+
+
+.quote-block p {
+    color: var(--poetry-color);
+    font-family: var(--poetry-font);
+    letter-spacing: 1px;
+    text-align: justify;
+    line-height: 2;
+    opacity: 0.8;
+}
+
+.quote-block cite {
+    color: var(--emphasis-color);
+    font-family: var(--emphasis-font);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --border-width: 10px;
+        --section-padding: 30px;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        margin-left: var(--border-width);
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    .poem {
+        font-size: 1.15rem;
+    }
+
+    .music-button {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --border-width: 6px;
+        --section-padding: 20px;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    .poem {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .quote-block p {
+        line-height: 1.6;
+    }
+
+    .music-button {
+        font-size: 1.2rem;
+    }
+}
