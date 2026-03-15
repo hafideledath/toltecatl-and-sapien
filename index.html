@@ -789,7 +789,7 @@ we value you</p></div>
     }, 1000);
 
     // Aloha, Xanadu! color cycling with flash toggle
-    let flashOn = false;
+    let flashOn = true;
     let flashInterval1 = null;
     let flashInterval2 = null;
     const flashBtn = document.querySelector('.flash-toggle');
@@ -845,6 +845,7 @@ we value you</p></div>
     }
 
     flashBtn.style.opacity = flashOn ? '1' : '0.4';
+    startFlash();
 
     flashBtn.addEventListener('click', () => {
         flashOn = !flashOn;
