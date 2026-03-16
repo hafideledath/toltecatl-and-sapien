@@ -198,6 +198,7 @@ section h4:not(:first-child) {
 }
 
 .poem.last-dance span span {
+    margin: 40px 0;
     color: var(--emphasis-color);
     font-style: italic;
     font-family: var(--emphasis-font);
