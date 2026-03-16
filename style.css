@@ -195,10 +195,10 @@ section h4:not(:first-child) {
     display: block;
     text-align: right;
     font-family: var(--emphasis-font);
+    margin-top: var(--border-width);
 }
 
 .poem.last-dance span span {
-    margin: 40px 0;
     color: var(--emphasis-color);
     font-style: italic;
     font-family: var(--emphasis-font);
