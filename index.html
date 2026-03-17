@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bigshot+One&family=Domine:wght@400..700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bigshot+One&family=Domine:wght@400..700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Syne+Mono&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="portfolioIcon.png">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-19MH6XMXZR"></script>
 <script>
@@ -24,6 +24,16 @@
         <div class="landscape-modal-content">
             <p>Please rotate your device to <strong>landscape mode</strong> for the best experience.</p>
             <button id="landscape-dismiss">Continue anyway</button>
+        </div>
+    </div>
+    <div class="cover-container">
+        <div class="cover">
+            <canvas id="cover-canvas"></canvas>
+            <div class="cover-scanlines"></div>
+        </div>
+        <div class="header">
+            <h1>Toltecatl<br>& SAPIEN</h1>
+            <sub>an experiment with generative AI</sub>
         </div>
     </div>
     <div class="top-controls">
@@ -703,6 +713,7 @@ I’ll show you, tourist, leave
 a review, we value your input,
 we value you</p></div>
     </section>
+<script src="coverpage.js"></script>
 <script src="scripts.js"></script>
 </body>
 </html>

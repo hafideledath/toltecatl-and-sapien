@@ -17,6 +17,53 @@ html {
     background-color: var(--page-color);
 }
 
+.cover-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-container h1 {
+    margin: 0;
+    font-family: "Syne Mono", monospace;
+    font-size: 4rem;
+    color: var(--section-header-color);
+    line-height: 1;
+}
+
+.cover-container sub {
+    font-family: var(--poetry-font);
+    font-size: 1.2rem;
+    line-height: 3;
+    color: var(--emphasis-color);
+}
+
+.cover {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    mix-blend-mode: lighten;
+}
+
+#cover-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cover-scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+}
+
 .landscape-modal {
     display: none;
     position: fixed;
@@ -123,7 +170,7 @@ section > * {
 .opener {
     background-color: var(--section-color);
     padding: calc(var(--section-padding) / 2) 0;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     max-width: calc(var(--section-width) - 100px);
     color: var(--poetry-color);
     font-family: var(--poetry-font);
@@ -378,6 +425,10 @@ section .quote-block:not(:first-child) {
         background-color: var(--page-color);
     }
 
+    .cover {
+        margin-top: 20px;
+    }
+
     .now-playing {
         writing-mode: horizontal-tb;
         left: calc(25px + var(--border-width));
@@ -413,6 +464,25 @@ section .quote-block:not(:first-child) {
 
     h3 {
         font-size: 3rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .cover-container h1 {
+        font-size: 3.4rem;
+    }
+    
+    .cover-container sub {
+        font-size: 1rem;
+    }
+
+    .cover {
+        height: 300px;
+        width: 300px;
+    }
+    
+    .cover-container {
+        gap: 20px;
     }
 }
 
