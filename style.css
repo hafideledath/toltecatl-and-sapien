@@ -235,10 +235,89 @@ section .quote-block:not(:first-child) {
     font-family: var(--emphasis-font);
 }
 
+@media (max-width: 1270px) {
+    body {
+        margin: 0;
+    }
+
+    .opener {
+        max-width: calc(100% - 220px);
+        padding-left: 40px;
+        padding-right: 30px;
+    }
+
+    .quote-block {
+        max-width: calc(100% - 220px);
+    }
+
+    h2 {
+        font-size: 6rem;
+    }
+
+    h3 {
+        font-size: 3.25rem;
+    }
+    
+    .poem {
+        font-size: 1.35rem;
+    }
+
+    .music-button, .flash-toggle {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 1080px) {
+    section {
+        align-items: flex-start;
+        margin-left: 60px;
+    }
+
+    .heading-container {
+        margin-left: 60px;
+    }
+
+    .poem {
+        font-size: 1.2rem;
+    }
+
+    .music-button, .flash-toggle {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 930px) {
+    h2 {
+        font-size: 5.3rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --border-width: 10px;
         --section-padding: 30px;
+    }
+
+    .top-controls {
+        width: 100vw;
+        right: 0;
+    }
+
+    .top-controls-col {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        background-color: var(--page-color);
+    }
+
+    .now-playing {
+        writing-mode: horizontal-tb;
+        left: calc(25px + var(--border-width));
+        margin: 0;
     }
 
     h2 {
@@ -260,6 +339,7 @@ section .quote-block:not(:first-child) {
 
     .music-button, .flash-toggle {
         font-size: 1.4rem;
+        margin: 0 calc(var(--border-width) * 2) 5px;
     }
 }
 
@@ -292,5 +372,18 @@ section .quote-block:not(:first-child) {
 
     .music-button, .flash-toggle {
         font-size: 1.2rem;
+    }
+}
+
+.poem-mobile {
+    display: none;
+}
+
+@media (max-width: 1080px) {
+    .poem-desktop {
+        display: none;
+    }
+    .poem-mobile {
+        display: block;
     }
 }
