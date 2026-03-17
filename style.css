@@ -533,4 +533,8 @@ section .quote-block:not(:first-child) {
     .cover-container {
         flex-direction: column;
     }
+
+    .quote-block {
+        max-width: calc(100% - 50px);
+    }
 }
