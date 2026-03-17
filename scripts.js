@@ -9,7 +9,7 @@
         'music/movement2.mp3': 'Early Summer [Ryo Fukui]',
         'music/movement3.mp3': 'vordhosbn [Aphex Twin]',
         'music/movement4.mp3': 'Alech [Dalton]',
-        'music/movement5.mp3': 'Alto Glide [Brian Bennett & Alan Hawkshaw]',
+        'music/movement5.mp3': 'Colonial Mentality [Fela Kuti]',
     };
 
     const sectionMap = [
