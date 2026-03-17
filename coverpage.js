@@ -2,10 +2,14 @@
   const canvas = document.getElementById('cover-canvas');
   const cover = canvas.parentElement;
   const W = () => cover.clientWidth, H = () => cover.clientHeight;
+  const BACKGROUND_COLOR = 0x161616;
+  const FADE_DURATION = 1500; // ms
+
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false });
   renderer.setSize(W(), H());
   renderer.setPixelRatio(1);
-  renderer.setClearColor(0x0a0a08);
+  renderer.setClearColor(BACKGROUND_COLOR);
+  canvas.style.opacity = '0';
 
   const scene = new THREE.Scene();
   const maskScene = new THREE.Scene();
@@ -135,18 +139,22 @@
   scene.add(glow);
   maskScene.add(new THREE.AmbientLight(0xffffff, 1));
 
+  const backgroundColorVec = new THREE.Color(BACKGROUND_COLOR);
+
   const ditherMaterial = new THREE.ShaderMaterial({
     uniforms: {
       tDiffuse: { value: null },
       tMask: { value: null },
       resolution: { value: new THREE.Vector2(W(), H()) },
       ditherScale: { value: 1.8 },
+      backgroundColor: { value: backgroundColorVec },
     },
     vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
     fragmentShader: `
       uniform sampler2D tDiffuse, tMask;
       uniform vec2 resolution;
       uniform float ditherScale;
+      uniform vec3 backgroundColor;
       varying vec2 vUv;
       float bayer8(vec2 p) {
         ivec2 ip = ivec2(mod(p, 8.0));
@@ -174,8 +182,9 @@
         float edgeFade = pow(vignette, 2.6);
         float d = step(bayer8(vUv * resolution / ditherScale), lum * edgeFade);
         vec3 lit = mix(vec3(0.92, 0.88, 0.80), vec3(0.95, 0.78, 0.15), mask);
-        vec3 drk = mix(vec3(0.04, 0.04, 0.03), vec3(0.12, 0.08, 0.0), mask);
-        vec3 col = mix(drk, lit, d) * (0.1 + 0.9 * edgeFade);
+        vec3 drk = mix(backgroundColor * 0.6, backgroundColor * 1.15, mask);
+        vec3 col = mix(drk, lit, d);
+        col = mix(backgroundColor, col, edgeFade);
         gl_FragColor = vec4(col, 1.0);
       }
     `,
@@ -186,9 +195,17 @@
   const postCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   postScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), ditherMaterial));
 
+  let fadeStart = null;
+
   function animate(time) {
     requestAnimationFrame(animate);
     const t = time * 0.001;
+
+    if (fadeStart === null) fadeStart = time;
+    const fadeProgress = Math.min(1, (time - fadeStart) / FADE_DURATION);
+    if (canvas.style.opacity !== '1') {
+      canvas.style.opacity = fadeProgress.toString();
+    }
 
     quipu.rotation.y = Math.sin(t * 0.02) * 0.06;
     quipu.rotation.x = Math.sin(t * 0.014) * 0.008;
