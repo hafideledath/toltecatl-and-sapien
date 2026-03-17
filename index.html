@@ -20,6 +20,12 @@
   gtag('config', 'G-19MH6XMXZR');
 </script>
 <body>
+    <div id="landscape-modal" class="landscape-modal">
+        <div class="landscape-modal-content">
+            <p>Please rotate your device to <strong>landscape mode</strong> for the best experience.</p>
+            <button id="landscape-dismiss">Continue anyway</button>
+        </div>
+    </div>
     <div class="top-controls">
         <div class="top-controls-col">
             <span class="music-button">music</span>
@@ -841,7 +847,6 @@ we value you</p></div>
         elapsedEl.textContent = Math.floor((Date.now() - pageStart) / 1000);
     }, 1000);
 
-    // Aloha, Xanadu! color cycling with flash toggle
     let flashOn = true;
     let flashInterval1 = null;
     let flashInterval2 = null;
@@ -908,6 +913,25 @@ we value you</p></div>
         } else {
             stopFlash();
         }
+    });
+    const landscapeModal = document.getElementById('landscape-modal');
+    const landscapeDismiss = document.getElementById('landscape-dismiss');
+    let landscapeDismissed = false;
+
+    function checkLandscapeWarning() {
+        if (!landscapeDismissed && window.innerWidth < 654) {
+            landscapeModal.classList.add('visible');
+        } else {
+            landscapeModal.classList.remove('visible');
+        }
+    }
+
+    checkLandscapeWarning();
+    window.addEventListener('resize', checkLandscapeWarning);
+
+    landscapeDismiss.addEventListener('click', () => {
+        landscapeDismissed = true;
+        landscapeModal.classList.remove('visible');
     });
 })();
 </script>

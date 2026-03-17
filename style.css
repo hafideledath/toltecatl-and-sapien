@@ -17,11 +17,59 @@ html {
     background-color: var(--page-color);
 }
 
+.landscape-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--page-color);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.landscape-modal.visible {
+    display: flex;
+}
+
+.landscape-modal-content {
+    text-align: center;
+    color: var(--poetry-color);
+    font-family: var(--poetry-font);
+    padding: 40px 30px;
+    max-width: 320px;
+}
+
+.landscape-modal-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.landscape-modal-content button {
+    background: none;
+    border: 1px solid var(--emphasis-color);
+    color: var(--emphasis-color);
+    font-family: var(--emphasis-font);
+    font-size: 0.85rem;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+
+.landscape-modal-content button:hover {
+    background: var(--emphasis-color);
+    color: var(--page-color);
+}
+
 body {
     margin: 0 auto;
     padding: 0;
     background-color: var(--page-color);
     width: fit-content;
+    overflow-x: hidden;
 }
 
 .heading-container {
@@ -122,7 +170,6 @@ section > * {
 }
 
 section {
-    width: 100%;
     max-width: var(--section-width);
     margin: var(--border-width);
     padding: var(--section-padding);
@@ -241,7 +288,7 @@ section .quote-block:not(:first-child) {
     }
 
     .opener {
-        max-width: calc(100% - 220px);
+        max-width: calc(100% - 80px);
         padding-left: 40px;
         padding-right: 30px;
     }
@@ -267,39 +314,21 @@ section .quote-block:not(:first-child) {
     }
 }
 
-@media (max-width: 1080px) {
-    section {
-        align-items: flex-start;
-        margin-left: 60px;
-    }
-
-    .heading-container {
-        margin-left: 60px;
-    }
-
-    .poem {
-        font-size: 1.2rem;
-    }
-
-    .music-button, .flash-toggle {
-        font-size: 1.4rem;
+@media (max-width: 1200px) {
+    .opener {
+        max-width: calc(100% - 160px);
+        padding-left: 40px;
+        padding-right: 30px;
     }
 }
 
-@media (max-width: 930px) {
-    h2 {
-        font-size: 5.3rem;
-    }
-
-    h3 {
-        font-size: 3rem;
-    }
+.poem-mobile {
+    display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1130px) {
     :root {
-        --border-width: 10px;
-        --section-padding: 30px;
+        --section-width: 880px;
     }
 
     .top-controls {
@@ -320,6 +349,61 @@ section .quote-block:not(:first-child) {
         margin: 0;
     }
 
+    .music-button, .flash-toggle {
+        font-size: 1.4rem;
+        margin: 5px calc(var(--border-width) * 2);
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .poem-desktop {
+        display: none;
+    }
+    .poem-mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 1080px) {
+    .poem {
+        font-size: 1.2rem;
+    }
+    
+    .music-button, .flash-toggle {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 930px) {
+    h2 {
+        font-size: 5.3rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 780px) {
+    .poem {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --border-width: 10px;
+        --section-padding: 30px;
+    }
+
+    .opener {
+        margin-top: 20px;
+    }
+
     h2 {
         font-size: 3.5rem;
         margin-left: var(--border-width);
@@ -334,16 +418,15 @@ section .quote-block:not(:first-child) {
     }
 
     .poem {
-        font-size: 1.15rem;
+        font-size: 1rem;
     }
 
-    .music-button, .flash-toggle {
-        font-size: 1.4rem;
-        margin: 0 calc(var(--border-width) * 2) 5px;
+    cite {
+        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     :root {
         --border-width: 6px;
         --section-padding: 20px;
@@ -373,17 +456,4 @@ section .quote-block:not(:first-child) {
     .music-button, .flash-toggle {
         font-size: 1.2rem;
     }
-}
-
-.poem-mobile {
-    display: none;
-}
-
-@media (max-width: 1080px) {
-    .poem-desktop {
-        display: none;
-    }
-    .poem-mobile {
-        display: block;
-    }
-}
+} */
