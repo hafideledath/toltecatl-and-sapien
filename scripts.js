@@ -7,9 +7,9 @@
         'music/prologue.mp3':  'ahitmanin [Imarhan]',
         'music/movement1.mp3': '180db_[130] [Aphex Twin]',
         'music/movement2.mp3': 'Early Summer [Ryo Fukui]',
-        'music/movement3.mp3': 'vordhosbn [Aphex Twin]',
+        'music/movement3.mp3': 'Colonial Mentality [Fela Kuti]',
         'music/movement4.mp3': 'Alech [Dalton]',
-        'music/movement5.mp3': 'Colonial Mentality [Fela Kuti]',
+        'music/movement5.mp3': 'D.A.N.C.E [Justice]',
     };
 
     const sectionMap = [
