@@ -236,7 +236,7 @@
         document.querySelectorAll('.quote-block p').forEach(generateTornClip);
     }
 
-    applyTornEdges();
+    document.fonts.ready.then(applyTornEdges);
     window.addEventListener('resize', applyTornEdges);
 
     const landscapeModal = document.getElementById('landscape-modal');
