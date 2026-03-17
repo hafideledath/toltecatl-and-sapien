@@ -263,23 +263,43 @@ section h4:not(:first-child) {
     margin-bottom: var(--section-padding);
 }
 
+.quote-block p {
+    position: relative;
+}
+
+.quote-block p::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    background: var(--poetry-color);
+    clip-path: var(--torn-clip, none);
+    pointer-events: none;
+    z-index: -1;
+}
+
 section .quote-block:not(:first-child) {
     margin-top: var(--section-padding);
 }
 
 
 .quote-block p {
-    color: var(--poetry-color);
+    color: var(--page-color);
     font-family: var(--poetry-font);
     letter-spacing: 1px;
     text-align: justify;
     line-height: 2;
     opacity: 0.8;
+    padding: 10px 20px;
+    margin-bottom: 15px;
 }
 
 .quote-block cite {
     color: var(--emphasis-color);
     font-family: var(--emphasis-font);
+}
+
+.elipses {
+    opacity: 0.5;
 }
 
 @media (max-width: 1270px) {
