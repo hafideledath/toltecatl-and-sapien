@@ -525,34 +525,12 @@ section .quote-block:not(:first-child) {
     }
 }
 
-/* @media (max-width: 480px) {
-    :root {
-        --border-width: 6px;
-        --section-padding: 20px;
+@media (max-width: 654px) {
+    body {
+        overflow-x: auto;
     }
 
-    h2 {
-        font-size: 2.5rem;
+    .cover-container {
+        flex-direction: column;
     }
-
-    h3 {
-        font-size: 1.3rem;
-    }
-
-    h4 {
-        font-size: 1.2rem;
-    }
-
-    .poem {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    .quote-block p {
-        line-height: 1.6;
-    }
-
-    .music-button, .flash-toggle {
-        font-size: 1.2rem;
-    }
-} */
+}
