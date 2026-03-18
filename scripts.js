@@ -13,7 +13,7 @@
     };
 
     const sectionMap = [
-        { selector: '.prologue',    src: 'music/prologue.mp3' },
+        { selector: '.cover-container, .opener, .prologue',    src: 'music/prologue.mp3' },
         { selector: '.movement-i',  src: 'music/movement1.mp3' },
         { selector: '.movement-ii', src: 'music/movement2.mp3' },
         { selector: '.movement-iii',src: 'music/movement3.mp3' },
